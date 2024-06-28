@@ -12,7 +12,7 @@ public class SimulationManager : MonoBehaviour
     
     [Header("-Food")]
     public GameObject foodPrefab;
-    public float foodRate;
+    public float foodRate; // Maybe increase more than 1
     private float foodTimer;
     private WaitForSeconds foodTime;
     public int initialFoodAmount;
