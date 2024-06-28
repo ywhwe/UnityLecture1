@@ -19,6 +19,6 @@ public class MainMenu : MonoBehaviour
 
     public void GoToIngame()
     {
-        SceneManager.LoadScene(1);
+        TotalManager.instance.MoveScene(1);
     }
 }

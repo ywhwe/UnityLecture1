@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TotalManager : MonoBehaviour
@@ -18,12 +19,26 @@ public class TotalManager : MonoBehaviour
 
     public void MoveScene(int id)
     {
-        
+        StartCoroutine(MoveSceneWithFade(id));
     }
 
     public void MoveScene(string sceneName)
     {
-        
+        StartCoroutine(MoveSceneWithFade(sceneName));
+    }
+
+    private IEnumerator MoveSceneWithFade(int id)
+    {
+        yield return StartCoroutine(FadeScreen(true));
+        SceneManager.LoadScene(id);
+        yield return StartCoroutine(FadeScreen(false));
+    }
+
+    private IEnumerator MoveSceneWithFade(string sceneName)
+    {
+        yield return StartCoroutine(FadeScreen(true));
+        SceneManager.LoadScene(sceneName);
+        yield return StartCoroutine(FadeScreen(false));
     }
 
     private IEnumerator FadeScreen(bool fadeOut)
@@ -42,9 +57,18 @@ public class TotalManager : MonoBehaviour
             var color = fadeScreen.color;
 
             initialValue += fadeDir * Time.deltaTime;
-            color.a += initialValue;
+            color.a = initialValue; Debug.Log(color.a);
 
             fadeScreen.color = color;
         }
+    }
+    
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else 
+        Application.Quit();
+#endif
     }
 }
