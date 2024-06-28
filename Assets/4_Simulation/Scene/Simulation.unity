@@ -689,7 +689,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 18, y: 170}
+  m_SizeDelta: {x: 25, y: 395}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &434500796
 MonoBehaviour:
@@ -1186,10 +1186,11 @@ MonoBehaviour:
   initialHawkAmount: 0
   hawkAmountText: {fileID: 608416654}
   hawkCount: 0
-  controlPanel: {fileID: 0}
+  controlPanel: {fileID: 557380837}
   mapSize: 23
   timeSlider: {fileID: 49621648}
   timeScaleText: {fileID: 1214148629}
+  doveBar: {fileID: 434500795}
 --- !u!1 &511241597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,7 +2491,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 18, y: 170}
+  m_SizeDelta: {x: 25, y: 395}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1430851717
 MonoBehaviour:
@@ -4006,8 +4007,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 17.2, y: 5}
-  m_SizeDelta: {x: 19.699997, y: 174}
+  m_AnchoredPosition: {x: 30.68, y: 5}
+  m_SizeDelta: {x: 30, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1994126812
 MonoBehaviour:

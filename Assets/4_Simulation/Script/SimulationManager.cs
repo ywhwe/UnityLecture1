@@ -38,6 +38,8 @@ public class SimulationManager : MonoBehaviour
     public Slider timeSlider;
     
     public TextMeshProUGUI timeScaleText;
+    public RectTransform doveBar;
+    private float max = 395f;
     
     private void Awake()
     {
@@ -52,14 +54,16 @@ public class SimulationManager : MonoBehaviour
         Time.timeScale = timeSlider.value;
         SetTimeScaleText(timeSlider.value);
         
-       
+        var tempSize = doveBar.sizeDelta;
+        tempSize.y = max * doveCount / (doveCount + hawkCount);
+        doveBar.sizeDelta = tempSize;
     }
 
     public void StartSimulation()
     {
         for (int i = 0; i < initialFoodAmount; i++)
         {
-            SpawnFood();
+            SpawnPrefabRandomPos(foodPrefab);
         }
         for (int i = 0; i < initialDoveAmount; i++)
         {
@@ -86,17 +90,14 @@ public class SimulationManager : MonoBehaviour
         var prefabPos = new Vector3(posX, 0f, posY);
         Instantiate(prefab, prefabPos, Quaternion.identity);
     }
-    
-    public void SpawnFood()
-    {
-        SpawnPrefabRandomPos(foodPrefab);
-    }
 
     private IEnumerator SpawningFood()
     {
         while (true)
         {
             yield return foodTime;
+            
+            SpawnPrefabRandomPos(foodPrefab);
         }
     }
 
@@ -122,7 +123,7 @@ public class SimulationManager : MonoBehaviour
 
         doveAmountText.text = initialDoveAmount.ToString();
     }
-    
+
     public void SetHawkAmount(bool inc)
     {
         initialHawkAmount += inc ? 1 : -1;
