@@ -52,9 +52,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ca400600626f8274abad1bc8cfaf8890, type: 2}
+    - target: {fileID: 4811565179030654779, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 5710632045166893177, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
       propertyPath: m_Name
       value: Hawk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806751437201897923, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82,3 +90,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blobPreFab: {fileID: 5165346838342193909}
+  idleTime: 1

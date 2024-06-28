@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class SimulationManager : MonoBehaviour
@@ -13,12 +14,16 @@ public class SimulationManager : MonoBehaviour
     public float foodRate;
 
     private float foodTimer;
-    public float mapSize = 23f;
+    
+    [HideInInspector]
+    public float mapSize = 21f;
 
     private WaitForSeconds foodTime;
     
     [Range(0.5f, 5f)]
     public float timeMult = 1f;
+
+    public Slider timeSlider;
     
     private void Awake()
     {
@@ -30,7 +35,7 @@ public class SimulationManager : MonoBehaviour
 
     private void Update()
     {
-        Time.timeScale = timeMult;
+        Time.timeScale = timeSlider.value;
     }
 
 

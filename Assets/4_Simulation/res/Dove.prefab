@@ -9,8 +9,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2113240436280204064, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
+      propertyPath: m_Radius
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113240436280204064, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3290950582389584740, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68,20 +72,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dove
       objectReference: {fileID: 0}
+    - target: {fileID: 6806751437201897923, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5710632045166893177, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8821421668060991421}
+      addedObject: {fileID: -1278443564603008657}
   m_SourcePrefab: {fileID: 100100000, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
 --- !u!1 &262143815940362563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5710632045166893177, guid: 3ca1c29131de7ed49859bb6092a4f46d, type: 3}
   m_PrefabInstance: {fileID: 5540395111261817146}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8821421668060991421
+--- !u!114 &-1278443564603008657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

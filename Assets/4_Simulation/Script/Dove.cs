@@ -5,12 +5,7 @@ using UnityEngine.PlayerLoop;
 
 public class Dove : Blob
 {
-    public float idleTime = 3f;
-    private float idleTimer;
-    private float eatingTimer;
-    private float eatingRate = 0.2f;
-
-    private Vector3 WanderingPos;
+    private bool isKicked = false;
     
     protected override void StateInit()
     {
@@ -65,6 +60,13 @@ public class Dove : Blob
             {
                 targetFood = null;
                 nextState = idleState;
+                return true;
+            }
+            
+            if (isKicked)
+            {
+                nextState = wanderingState;
+                isKicked = false;
                 return true;
             }
         }
@@ -139,6 +141,10 @@ public class Dove : Blob
             hp++;
             eatingTimer -= eatingRate;
         }
-        
+    }
+    
+    public void SetKicked()
+    {
+        isKicked = true;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Food : MonoBehaviour
@@ -25,7 +26,6 @@ public class Food : MonoBehaviour
     public void TakeFood()
     {
         energy--;
-        Debug.Log("energy: " + energy);
         
         if (energy < 0)
         {
@@ -39,11 +39,29 @@ public class Food : MonoBehaviour
         }
     }
 
-    public bool IsHawkEating()
-    {
-        
-        return isHawk;
-    }
+    public bool IsHawkEating() => isHawk;
 
     public bool IsDestroyed() => isDestroyed;
+
+    public bool CheckEnemy()
+    {
+        if (isHawk)
+        {
+            isDestroyed = true;
+            if(!gameObject.IsDestroyed())
+            {
+                Destroy(gameObject);
+            }
+            return false;
+        }
+        else
+        {
+            foreach (Dove dove in owner)
+            {
+                dove.SetKicked();
+            }
+
+            return true;
+        }
+    }
 }

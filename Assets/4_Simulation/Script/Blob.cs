@@ -24,6 +24,14 @@ public abstract class Blob : MonoBehaviour
 
     protected int hp = 20;
     protected const int MaxHp = 40;
+    
+    public float idleTime = 1f;
+    protected float idleTimer;
+    
+    protected float eatingTimer;
+    protected float eatingRate = 0.2f;
+
+    protected Vector3 WanderingPos;
 
     private WaitForSeconds energyUseRate = new WaitForSeconds(2f);
     private void Awake()
@@ -53,11 +61,6 @@ public abstract class Blob : MonoBehaviour
     protected abstract void StateInit();
     protected abstract bool TransitionCheck();
 
-    public void ResetFood()
-    {
-        targetFood = null;
-    }
-
     private IEnumerator UsingEnergy()
     {
         while (hp > 0)
@@ -65,9 +68,10 @@ public abstract class Blob : MonoBehaviour
             yield return energyUseRate; // waits 2sec
             hp--;
 
-            if (hp < 0)
+            if (hp <= 0)
             {
-                targetFood.RemoveOwner(this);
+                if(targetFood != null && targetFood.IsDestroyed())
+                    targetFood.RemoveOwner(this);
                 Destroy(gameObject);
             }
 
