@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+  - Dove
+  - Hawk
   layers:
   - Default
   - TransparentFX
