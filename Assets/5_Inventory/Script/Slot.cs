@@ -6,10 +6,17 @@ using UnityEngine.UI;
 public class Slot : MonoBehaviour
 {
     public Image itemImage;
-
-    public void SetItem(/* Item data */)
+    
+    private bool _isFilled = false;
+    public bool isFilled => _isFilled;
+    public void SetItem(ItemData data)
     {
-        // itemImage.sprite = 
+        itemImage.sprite = data.itemImage;
         
+        var tempColor = itemImage.color;
+        tempColor.a = 1f;
+        itemImage.color = tempColor;
+        
+        _isFilled = true;
     }
 }

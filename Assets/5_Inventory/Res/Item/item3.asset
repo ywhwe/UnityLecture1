@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f21028464b9643e448737cb52ac71982, type: 3}
-  m_Name: New Item Data 1
+  m_Name: item3
   m_EditorClassIdentifier: 
-  itemImage: {fileID: 21300000, guid: 53ecdc521e01935449c1e0e94eed7a6d, type: 3}
-  itemName: Radar
-  itemDesc: 'Radar System for armor
+  itemImage: {fileID: 21300000, guid: 489325209590f414181a6bd768944d7e, type: 3}
+  itemName: Healing Potion
+  itemDesc: 'Healing potion
 
-    Automatically detects attacks'
-  type: 1
+    Use once, heals mild wounds'
+  type: 2
