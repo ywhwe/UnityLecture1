@@ -36,4 +36,14 @@ public class Slot : MonoBehaviour
     {
         inventorySystem.ExitTooltip();
     }
+
+    public void MouseMove(Vector2 pos)
+    {
+        inventorySystem.TooltipMove(pos);
+    }
+
+    public void MouseDown(ItemIcon icon)
+    {
+        inventorySystem.InitDrag(icon);
+    }
 }

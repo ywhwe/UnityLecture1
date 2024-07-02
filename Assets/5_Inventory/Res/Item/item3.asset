@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: item3
   m_EditorClassIdentifier: 
   itemImage: {fileID: 21300000, guid: 489325209590f414181a6bd768944d7e, type: 3}
-  itemName: Healing Potion
+  itemName: Potion
   itemDesc: 'Healing potion
 
     Use once, heals mild wounds'
