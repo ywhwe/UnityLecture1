@@ -8,7 +8,6 @@ public class Slot : MonoBehaviour
     public InventorySystem inventorySystem;
     private ItemData itemData;
     
-    
     public Image itemImage;
     
     private bool _isFilled = false;

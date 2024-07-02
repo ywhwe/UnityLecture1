@@ -20,6 +20,6 @@ public class ItemIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        Debug.Log("Mouse Move");
+        
     }
 }
