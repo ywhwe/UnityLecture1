@@ -56,4 +56,5 @@ public class ItemIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         rectTransform.anchoredPosition = new Vector2(50f, 50f);
         slot.BackToSlot();
     }
+    
 }

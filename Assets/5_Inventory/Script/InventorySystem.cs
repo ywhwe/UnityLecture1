@@ -24,6 +24,8 @@ public class InventorySystem : MonoBehaviour
 
     private bool isPointerInBG;
     private bool isPointerInFrame;
+    private Slot focusedSlot;
+    public Slot FocusedSlot => focusedSlot;
     
     void Start()
     {
@@ -53,7 +55,15 @@ public class InventorySystem : MonoBehaviour
 
             if (isPointerInFrame)
             {
-                icon!.BackToSlot();
+                if (focusedSlot != null)
+                {
+                    focusedSlot.SetItem(icon.slot.ItemData);
+                    icon.Reset();
+                }
+                else
+                {
+                    icon!.BackToSlot();
+                }
             }
 
             icon = null;
@@ -124,5 +134,10 @@ public class InventorySystem : MonoBehaviour
     public void OnFrameExit(BaseEventData eventData)
     {
         isPointerInFrame = false;
+    }
+
+    public void SetFocusedSlot(Slot slot)
+    {
+        focusedSlot = slot;
     }
 }
