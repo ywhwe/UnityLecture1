@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
@@ -19,6 +21,9 @@ public class InventorySystem : MonoBehaviour
     public RectTransform iconLayer;
 
     private ItemIcon icon;
+
+    private bool isPointerInBG;
+    private bool isPointerInFrame;
     
     void Start()
     {
@@ -32,6 +37,26 @@ public class InventorySystem : MonoBehaviour
         foreach (var itemKey in itemDB.Keys)
         {
             SetItem(itemKey);
+        }
+    }
+
+    private void Update()
+    {
+        icon?.SetPos(Input.mousePosition);
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isPointerInBG)
+            {
+                icon!.Reset();
+            }
+
+            if (isPointerInFrame)
+            {
+                icon!.BackToSlot();
+            }
+
+            icon = null;
         }
     }
 
@@ -78,6 +103,26 @@ public class InventorySystem : MonoBehaviour
         icon.GetComponent<Image>().raycastTarget = false;
         tooltipObj.SetActive(false);
         
-        icon.SetPos();
+        // icon.SetPos();
+    }
+
+    public void OnBGEnter(BaseEventData eventData)
+    {
+        isPointerInBG = true;
+    }
+    
+    public void OnBGExit(BaseEventData eventData)
+    {
+        isPointerInBG = false;
+    }
+    
+    public void OnFrameEnter(BaseEventData eventData)
+    {
+        isPointerInFrame = true;
+    }
+    
+    public void OnFrameExit(BaseEventData eventData)
+    {
+        isPointerInFrame = false;
     }
 }

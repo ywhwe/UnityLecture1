@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,5 +46,25 @@ public class Slot : MonoBehaviour
     public void MouseDown(ItemIcon icon)
     {
         inventorySystem.InitDrag(icon);
+    }
+
+    public void Reset()
+    {
+        itemImage.sprite = null;
+        
+        var tempColor = itemImage.color;
+        tempColor.a = 0f;
+        itemImage.color = tempColor;
+
+        itemImage.raycastTarget = true;
+
+        itemData = null;
+        
+        _isFilled = false;
+    }
+
+    public void BackToSlot()
+    {
+        itemImage.raycastTarget = true;
     }
 }
