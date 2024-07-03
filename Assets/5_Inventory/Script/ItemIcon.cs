@@ -43,7 +43,7 @@ public class ItemIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        slot.MouseDown(this);
         pos = eventData.position;
+        slot.MouseDown(this);
     }
 }
