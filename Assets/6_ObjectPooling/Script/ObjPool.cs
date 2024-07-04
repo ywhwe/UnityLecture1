@@ -15,17 +15,24 @@ public class ObjPool : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            var tempObj = Instantiate(prefab);
-            tempObj.SetActive(false);
-            
-            var sphereMover = tempObj.GetComponent<SphereMover>();
-            pool.Enqueue(sphereMover);
+            GenerateObj();
         }
+    }
+
+    private void GenerateObj()
+    {
+        var tempObj = Instantiate(prefab);
+        tempObj.SetActive(false);
+            
+        var sphereMover = tempObj.GetComponent<SphereMover>();
+        pool.Enqueue(sphereMover);
     }
 
     public SphereMover GetObj()
     {
-        var sphereMover = pool.Dequeue();
+        if (pool.Count < 1) GenerateObj();
+        
+        var sphereMover = pool.Dequeue(); 
         sphereMover.gameObject.SetActive(true);
         
         return sphereMover;
