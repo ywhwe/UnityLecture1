@@ -40,8 +40,32 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(string key, Vector3 pos)
     {
+        if (!soundDB.ContainsKey(key))
+        {
+            Debug.LogError("There is no key in soundDB: " + key);
+            return;
+        }
+        
         var node = GetNode();
+        
         node.transform.position = pos;
+        
+        node.Play(soundDB[key]);
+    }
+
+    public void PlaySound(string key, Transform parent)
+    {
+        if (!soundDB.ContainsKey(key))
+        {
+            Debug.LogError("There is no key in soundDB: " + key);
+            return;
+        }
+        
+        var node = GetNode();
+        
+        node.transform.SetParent(parent);
+        node.transform.localPosition = Vector3.zero;
+        
         node.Play(soundDB[key]);
     }
 
@@ -59,6 +83,8 @@ public class SoundManager : MonoBehaviour
 
     public void SetNode(AudioNode node)
     {
+        node.transform.SetParent(transform);
+        
         soundPool.Enqueue(node);
     }
 }

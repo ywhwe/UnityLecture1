@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SoundManagerTest : MonoBehaviour
 {
+    public Transform test;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +18,17 @@ public class SoundManagerTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SoundManager.instance.PlaySound("s1", Vector3.zero);
+            SoundManager.instance.PlaySound("s1", test);
         }
         
         if (Input.GetKeyDown(KeyCode.S))
         {
-            SoundManager.instance.PlaySound("s2", Vector3.zero);
+            SoundManager.instance.PlaySound("s1", Vector3.right * 10f);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SoundManager.instance.PlaySound("s10", Vector3.right * 10f);
         }
     }
 }
