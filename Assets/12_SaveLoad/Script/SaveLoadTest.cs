@@ -69,7 +69,33 @@ public class SaveLoadTest : MonoBehaviour
         }
         
         data.enemies = enemyData;
+        
+        SaveLoadHelper.SaveData(data);
 
-        var json = JsonUtility.ToJson(data);
+        // var json = JsonUtility.ToJson(data);
+    }
+    
+    public void LoadData()
+    {
+        var data = SaveLoadHelper.LoadData<TestData>("SavedGame", "Boot/Test");
+
+        stage.text = data.stage.ToString();
+        playerID.text = data.playerID.ToString();
+        player.transform.position = data.playerPos;
+        
+        foreach (var enemyTemp in enemies)
+        {
+            Destroy(enemyTemp.gameObject);
+        }
+        
+        enemies.Clear();
+        
+        foreach (var element in data.enemies)
+        {
+            var enemy = Instantiate(enemyPrefabs[element.id], element.pos, Quaternion.identity).GetComponent<EnemyTemp>();
+            enemy.hp = element.hp;
+            
+            enemies.Add(enemy);
+        }
     }
 }

@@ -1417,7 +1417,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 524770166}
         m_TargetAssemblyTypeName: SaveLoadTest, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: LoadData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
